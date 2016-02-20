@@ -42,7 +42,7 @@ namespace MvcClient
                 options.SaveTokensAsClaims = false;
                 
                 options.Authority = "https://localhost:44345";
-                options.PostLogoutRedirectUri = "http://localhost:2221/";
+                options.PostLogoutRedirectUri = "https://localhost:44334/";
 
                 options.ClientId = "mvc6";
                 options.ResponseType = "id_token token";
@@ -52,13 +52,16 @@ namespace MvcClient
                 options.Scope.Add("email");
                 options.Scope.Add("profile");
                 options.Scope.Add("dataEventRecords");
-                
+                options.Scope.Add("role");
+                options.Scope.Add("dataEventRecords.user");
+                options.Scope.Add("dataEventRecords.admin");
+
                 options.Events = new OpenIdConnectEvents
                 {
                     OnAuthenticationValidated = data =>
                     {
                         var incoming = data.AuthenticationTicket.Principal;
-                        var id = new ClaimsIdentity("application", "given_name", "role");
+                        var id = new ClaimsIdentity("mvc6", "damienbodadmin", "role");
 
                         id.AddClaim(incoming.FindFirst("sub"));
                         id.AddClaim(incoming.FindFirst("email"));

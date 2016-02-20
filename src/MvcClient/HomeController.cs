@@ -29,7 +29,7 @@ namespace MvcClient
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            var response = await client.GetStringAsync("http://localhost:30660/api/dataEventRecords");
+            var response = await client.GetStringAsync("https://localhost:44390/api/DataEventRecords");
 
             ViewBag.Json = response;
             return View();
