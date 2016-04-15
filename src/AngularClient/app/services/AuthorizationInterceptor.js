@@ -32,7 +32,7 @@
                 localStorageService.set("authorizationData", "");
             }
 
-            return this.q.reject(responseFailure);
+            return $q.reject(responseFailure);
         };
 
         return {

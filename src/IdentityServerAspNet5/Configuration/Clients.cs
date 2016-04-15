@@ -12,6 +12,34 @@
             {
                 new Client
                 {
+                    ClientName = "aspnetcoreidclient3",
+                    ClientId = "aspnetcoreidclient3",
+                    Flow = Flows.Implicit,
+                    RedirectUris = new List<string>
+                    {
+                        "http://localhost:56873/signin-oidc"
+                    },
+                    PostLogoutRedirectUris = new List<string>
+                    {
+                        "http://localhost:56873/"
+                    },
+                    AllowedCorsOrigins = new List<string>
+                    {
+                        "http://localhost:56873"
+                    },
+                    AllowedScopes = new List<string>
+                    {
+                        "openid",
+                        "email",
+                        "profile",
+                        "dataEventRecords",
+                        "aReallyCoolScope",
+                        "securedFiles",
+                        "role"
+                    }
+                },
+                new Client
+                {
                     ClientName = "angularclient",
                     ClientId = "angularclient",
                     Flow = Flows.Implicit,
